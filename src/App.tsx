@@ -1,12 +1,12 @@
+import SideNav from "components/SideNav";
+
 function App() {
   return (
     <div className="App">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
+     <div className="flex h-[100vh]">
+      <SideNav />
+      <div>content</div>
+     </div>
     </div>
   );
 }
