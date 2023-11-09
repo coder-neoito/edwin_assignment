@@ -1,3 +1,4 @@
+import Header from "components/Header";
 import SideNav from "components/SideNav";
 
 function App() {
@@ -5,7 +6,10 @@ function App() {
     <div className="App">
      <div className="flex h-[100vh]">
       <SideNav />
-      <div>content</div>
+      <div className="flex-1 h-full overflow-y-auto flex-col flex">
+        <Header />
+        <div className="bg-[#343444] text-white flex-1">Content</div>
+      </div>
      </div>
     </div>
   );

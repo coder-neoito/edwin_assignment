@@ -7,5 +7,9 @@
 }
 
 .nav-list > li {
-    @apply flex gap-3 px-6 py-2
+    @apply flex gap-3 px-6 py-2;
+}
+
+.header-button {
+    @apply border-none outline-none px-4 py-3 font-semibold rounded-md hover:bg-[#343444] hover:text-white hover:shadow-md;
 }
