@@ -2,7 +2,7 @@ import { News1, Triangle, User1 } from 'assets/Images';
 
 const NewsDetails = () => {
   return (
-    <div className="w-full">
+    <>
       <div className="flex text-sm gap-2 items-center mb-2">
         <span className="text-[#8484A5] cursor-pointer">News</span>
         <img src={Triangle} alt="" width={10} height={10} />
@@ -55,11 +55,7 @@ const NewsDetails = () => {
         </p>
         <div className="border-t-2 border-[#646480] pt-6">
           <div className="flex gap-3">
-            <img
-              src={User1}
-              alt=""
-              className="rounded-[40px] w-10 h-10"
-            />
+            <img src={User1} alt="" className="rounded-[40px] w-10 h-10" />
             <div className="flex flex-col justify-center">
               <span className="text-white">Rafath_pograa</span>
               <span className="text-[#9d9dbb]">October 31, 2023</span>
@@ -67,7 +63,7 @@ const NewsDetails = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

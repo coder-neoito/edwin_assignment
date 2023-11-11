@@ -10,7 +10,12 @@ import Linkedin from './linkedin.webp';
 import Twitter from './twitter.webp';
 import Right from './right.svg';
 import News1 from './news-1.webp';
+import News2 from './news2.webp';
+import News3 from './news3.webp';
+import News4 from './news4.webp';
 import User1 from './user1.webp';
+import User2 from './user2.webp';
+import User3 from './user3.webp';
 import Logo from './pogr-logo.webp';
 import Triangle from './triangle.svg';
 
@@ -27,7 +32,12 @@ export {
   Twitter,
   Right,
   News1,
+  News2,
+  News3,
+  News4,
   User1,
+  User2,
+  User3,
   Logo,
   Triangle,
 };
