@@ -7,7 +7,7 @@
 }
 
 .nav-list > li {
-    @apply flex gap-3 px-6 py-2;
+    @apply flex gap-3 px-6 py-4 hover:bg-[#27303D] cursor-pointer;
 }
 
 .header-button {

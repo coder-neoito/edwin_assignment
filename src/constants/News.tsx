@@ -11,7 +11,7 @@ const getMockData = () => {
     title: faker.lorem.words({ min: 1, max: 4 }),
     banner: banners[faker.number.int({ min: 0, max: banners.length - 1 })],
     avatar: avatars[faker.number.int({ min: 0, max: avatars.length - 1 })],
-    content: faker.lorem.sentence({ min: 5, max: 10 }),
+    content: faker.lorem.sentences({ min: 7, max: 12 }),
     date: faker.date.past(),
     user: `${faker.lorem.word({
       length: { min: 4, max: 6 },
