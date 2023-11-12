@@ -1,14 +1,14 @@
-import { Cards, DB, Esports } from 'assets/Images';
+import { Cards, DB, Esports, LandFooter } from 'assets/Images';
 
 const HomePage = () => {
-    const backgroundImageStyle = {
-        backgroundImage: 'url("/src/assets/Images/footer.webp")',
-        width: "100%",
-        backgroundSize: "cover",
-      };
+  const backgroundImageStyle = {
+    backgroundImage: 'url("/src/assets/Images/footer.webp")',
+    width: '100%',
+    backgroundSize: 'cover',
+  };
   return (
     <div className="h-full flex flex-col items-center">
-      <div className="flex items-center px-64 gap-8 py-10">
+      <div className="flex items-center px-32 lg:px-48 xl:px-64 gap-8 py-10 flex-col-reverse xl:flex-row">
         <div>
           <h1 className="text-white text-[45px]">
             It's all about bringing gamers together. <br />
@@ -24,7 +24,7 @@ const HomePage = () => {
         <img src={Cards} alt="" width={401} height={342} />
       </div>
 
-      <div className="flex items-center px-64 gap-8 py-10">
+      <div className="flex items-center px-32 lg:px-48 xl:px-64 gap-8 py-10 flex-col xl:flex-row">
         <img src={Esports} alt="" width={401} height={342} />
         <div>
           <h1 className="text-white text-[45px]">
@@ -44,10 +44,10 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="flex items-center px-64 gap-8 py-10">
+      <div className="flex items-center px-32 lg:px-48 xl:px-64 gap-8 py-10 flex-col-reverse xl:flex-row">
         <div>
           <h1 className="text-white text-[45px]">
-          Huge database – massive opportunities
+            Huge database – massive opportunities
           </h1>
           <p className="text-[#B7B7D4] text-lg py-2">
             For the first time, scroll through the gaming industry. Never before
@@ -62,11 +62,40 @@ const HomePage = () => {
         </div>
         <img src={DB} alt="" width={401} height={342} />
       </div>
-      <div style={backgroundImageStyle} className="p-48 text-white flex flex-col justify-center items-center">
-        <div className='text-[#00DDDD] text-xl my-6 p-3 font-semibold'>FEEDBACK PLZ</div>
-        <div className='text-[45px] p-3 mb-6'>We'd like to hear what you think!</div>
-        <div className='text-[#B7B7D4] text-lg'>We highly value and appreciate any input that can make POGR the best possible community for gamers.</div>
+      <div className="relative min-h-[400px] w-full flex flex-col justify-center items-center overflow-hidden">
+        <img
+          src={LandFooter}
+          alt=""
+          className="w-full h-auto absolute top-0 left-0 object-cover object-center"
+        />
+        <div className="absolute top-0 left-0 flex flex-col justify-center items-center text-center w-full">
+          <div className="text-[#00DDDD] text-xl my-6 p-3 font-semibold">
+            FEEDBACK PLZ
+          </div>
+          <div className="text-[45px] p-3 mb-6">
+            We'd like to hear what you think!
+          </div>
+          <div className="text-[#B7B7D4] text-lg">
+            We highly value and appreciate any input that can make POGR the best
+            possible community for gamers.
+          </div>
+        </div>
       </div>
+      {/* <div
+        style={backgroundImageStyle}
+        className="p-48 text-white flex flex-col justify-center items-center"
+      >
+        <div className="text-[#00DDDD] text-xl my-6 p-3 font-semibold">
+          FEEDBACK PLZ
+        </div>
+        <div className="text-[45px] p-3 mb-6">
+          We'd like to hear what you think!
+        </div>
+        <div className="text-[#B7B7D4] text-lg">
+          We highly value and appreciate any input that can make POGR the best
+          possible community for gamers.
+        </div>
+      </div> */}
     </div>
   );
 };

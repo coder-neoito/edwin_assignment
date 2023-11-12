@@ -20,6 +20,7 @@ import Logo from './pogr-logo.webp';
 import Triangle from './triangle.svg';
 import NotFound from './not-found.svg';
 import Invalid from './invalid.svg';
+import LandFooter from './footer.webp';
 
 export {
   Home,
@@ -44,4 +45,5 @@ export {
   Triangle,
   NotFound,
   Invalid,
+  LandFooter,
 };

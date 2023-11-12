@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const SideNav = () => {
   const navigate = useNavigate();
   const current = window.location.pathname;
-  console.log('current', current);
+  
   return (
     <div className="h-full bg-[#292936] flex flex-col w-[260px]">
       <div
