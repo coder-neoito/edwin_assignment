@@ -3,6 +3,7 @@ import SideNav from 'components/SideNav';
 import Authorisation from 'pages/Authorisation';
 import HomePage from 'pages/HomePage';
 import News from 'pages/News';
+import NotFound from 'pages/NotFound';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const Router = () => {
@@ -18,6 +19,7 @@ const Router = () => {
             <Route path="/news/:id" element={<News />} />
             <Route path="/sign-in" element={<Authorisation />} />
             <Route path="/register" element={<Authorisation />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>

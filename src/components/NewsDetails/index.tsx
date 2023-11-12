@@ -3,6 +3,7 @@ import { Triangle } from 'assets/Images';
 import { useNavigate } from 'react-router-dom';
 import { getNews } from 'services/NewsService';
 import { format } from 'date-fns';
+import InvalidNews from 'components/InvalidNews';
 
 const NewsDetails: React.FC<{ id: string }> = ({ id }) => {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ const NewsDetails: React.FC<{ id: string }> = ({ id }) => {
       </div>
     </>
   ) : (
-    <>Invalid id</>
+    <InvalidNews />
   );
 };
 

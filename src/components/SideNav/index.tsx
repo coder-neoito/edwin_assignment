@@ -16,7 +16,7 @@ const SideNav = () => {
       <ul className="flex flex-col list-none nav-list w-full">
         <li
           className={`${
-            !current.includes('/news')
+            current === '/'
               ? 'bg-[#2F2F3D] border-r-4 border-[#0dd]'
               : ''
           }`}

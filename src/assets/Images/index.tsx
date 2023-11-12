@@ -18,6 +18,8 @@ import User2 from './user2.webp';
 import User3 from './user3.webp';
 import Logo from './pogr-logo.webp';
 import Triangle from './triangle.svg';
+import NotFound from './not-found.svg';
+import Invalid from './invalid.svg';
 
 export {
   Home,
@@ -40,4 +42,6 @@ export {
   User3,
   Logo,
   Triangle,
+  NotFound,
+  Invalid,
 };
