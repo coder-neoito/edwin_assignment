@@ -17,6 +17,7 @@ const NewsDetails: React.FC<{ id: string }> = ({ id }) => {
         avatar: string;
         date: Date;
         content: string;
+        isBookMarked: false;
       }
     | undefined
   >();

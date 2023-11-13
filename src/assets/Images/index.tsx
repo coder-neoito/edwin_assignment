@@ -21,6 +21,9 @@ import Triangle from './triangle.svg';
 import NotFound from './not-found.svg';
 import Invalid from './invalid.svg';
 import LandFooter from './footer.webp';
+import Delete from './delete.svg';
+import BookMarked from './bookmarked.svg';
+import BookMark from './bookamark.svg';
 
 export {
   Home,
@@ -46,4 +49,7 @@ export {
   NotFound,
   Invalid,
   LandFooter,
+  Delete,
+  BookMark,
+  BookMarked
 };

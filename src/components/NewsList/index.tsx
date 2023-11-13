@@ -1,7 +1,7 @@
+import { BookMark, BookMarked, Delete } from 'assets/Images';
 import { format } from 'date-fns';
 import useNewsContext from 'hooks/UseNewsContext';
 import { useNavigate } from 'react-router-dom';
-import { getNewsList } from 'services/NewsService';
 
 interface NewsType {
   id: string;
@@ -11,15 +11,22 @@ interface NewsType {
   avatar: string;
   date: Date;
   content: string;
+  isBookMarked: false;
 }
 
 const NewsList = () => {
-  const { newsList } = useNewsContext();
+  const { newsList, updateNews, deleteNews, createNews } = useNewsContext();
   const navigate = useNavigate();
   return (
     <>
-      <div className="text-[#b7b7d4] text-sm font-bold mb-4">
-        Most recent POGR news
+      <div className="w-full flex items-center justify-between mb-4">
+        <div className="text-[#b7b7d4] font-bold">Most recent POGR news</div>
+        <button
+          className="bg-white text-[#292936] border-none outline-none px-3 py-2 font-semibold rounded-md hover:bg-[#4A4A5F] hover:text-white hover:shadow-md"
+          onClick={() => createNews()}
+        >
+          Add News
+        </button>
       </div>
       {newsList.map((news: NewsType) => (
         <div
@@ -52,6 +59,24 @@ const NewsList = () => {
                   {format(news.date, 'dd MMM yyyy')}
                 </span>
               </div>
+            </div>
+          </div>
+          <div className="flex mr-16 gap-6">
+            <div
+              className="h-fit self-center cursor-pointer shrink-0"
+              onClick={() => updateNews(news.id)}
+            >
+              {news.isBookMarked ? (
+                <img src={BookMarked} alt="bookmark" width={25} height={30} />
+              ) : (
+                <img src={BookMark} alt="bookmark" width={25} height={30} />
+              )}
+            </div>
+            <div
+              className="h-fit self-center cursor-pointer shrink-0"
+              onClick={() => deleteNews(news.id)}
+            >
+              <img src={Delete} alt="remove" width={28} height={28} />
             </div>
           </div>
         </div>
