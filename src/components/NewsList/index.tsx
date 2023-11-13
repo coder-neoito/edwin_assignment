@@ -1,16 +1,27 @@
 import { format } from 'date-fns';
+import useNewsContext from 'hooks/UseNewsContext';
 import { useNavigate } from 'react-router-dom';
 import { getNewsList } from 'services/NewsService';
 
+interface NewsType {
+  id: string;
+  title: string;
+  banner: string;
+  user: string;
+  avatar: string;
+  date: Date;
+  content: string;
+}
+
 const NewsList = () => {
-  const newsList = getNewsList();
+  const { newsList } = useNewsContext();
   const navigate = useNavigate();
   return (
     <>
       <div className="text-[#b7b7d4] text-sm font-bold mb-4">
         Most recent POGR news
       </div>
-      {newsList.map((news) => (
+      {newsList.map((news: NewsType) => (
         <div
           key={news.id}
           className="w-full overflow-hidden my-[2px] flex bg-[#4A4A5F]"
