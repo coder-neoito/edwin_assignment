@@ -33,35 +33,55 @@ const NewsList = () => {
           key={news.id}
           className="w-full overflow-hidden my-[2px] flex bg-[#4A4A5F]"
         >
-          <div className="min-w-[9.5rem] w-[9.5rem] h-[7.5rem]">
+          <div className="min-w-[9.5rem] w-[9.5rem] h-[162px] sm:h-[7.5rem]">
             <img
               src={news.banner}
               alt=""
               className="w-full h-full object-cover object-center"
             />
           </div>
-          <div className="w-full p-4">
-            <h3
-              onClick={() => navigate(`/news/${news.id}`)}
-              className="font-bold truncate text-xl lg:text-2xl text-white hover:text-[#0DD] transition-colors duration-100 ease-in-out capitalize cursor-pointer"
-            >
-              {news.title}
-            </h3>
-            <div className="flex gap-2 mt-3 items-center">
-              <img
-                src={news.avatar}
-                alt=""
-                className="rounded-[40px] w-10 h-10"
-              />
-              <div className="flex flex-col justify-center">
-                <span className="text-white">{news.user}</span>
-                <span className="text-[#9d9dbb]">
-                  {format(news.date, 'dd MMM yyyy')}
-                </span>
+          <div className="flex w-full flex-col sm:flex-row">
+            <div className="flex-1 p-4">
+              <h3
+                onClick={() => navigate(`/news/${news.id}`)}
+                className="font-bold truncate text-xl lg:text-2xl text-white hover:text-[#0DD] transition-colors duration-100 ease-in-out capitalize cursor-pointer"
+              >
+                {news.title}
+              </h3>
+              <div className="flex gap-2 mt-3 items-center">
+                <img
+                  src={news.avatar}
+                  alt=""
+                  className="rounded-[40px] w-10 h-10"
+                />
+                <div className="flex flex-col justify-center">
+                  <span className="text-white">{news.user}</span>
+                  <span className="text-[#9d9dbb]">
+                    {format(news.date, 'dd MMM yyyy')}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex mr-12 gap-6 pb-3 pl-4 sm:pb-0">
+              <div
+                className="h-fit self-center cursor-pointer shrink-0"
+                onClick={() => updateNews(news.id)}
+              >
+                {news.isBookMarked ? (
+                  <img src={BookMarked} alt="bookmark" width={25} height={30} />
+                ) : (
+                  <img src={BookMark} alt="bookmark" width={25} height={30} />
+                )}
+              </div>
+              <div
+                className="h-fit self-center cursor-pointer shrink-0"
+                onClick={() => deleteNews(news.id)}
+              >
+                <img src={Delete} alt="remove" width={28} height={28} />
               </div>
             </div>
           </div>
-          <div className="flex mr-16 gap-6">
+          {/* <div className="flex mr-16 gap-6">
             <div
               className="h-fit self-center cursor-pointer shrink-0"
               onClick={() => updateNews(news.id)}
@@ -78,7 +98,7 @@ const NewsList = () => {
             >
               <img src={Delete} alt="remove" width={28} height={28} />
             </div>
-          </div>
+          </div> */}
         </div>
       ))}
     </>
