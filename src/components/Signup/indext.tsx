@@ -1,6 +1,9 @@
 import { Hide, Show } from 'assets/Images';
+import useAuthContext from 'hooks/UseAuthContext';
 import { useState, ChangeEvent, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +11,8 @@ const SignUp = () => {
     password: '',
     confirm_password: '',
   });
+  const navigate = useNavigate();
+  const {signUpHandler} = useAuthContext();
   const loginSchema = z
     .object({
       email: z.string().min(1, 'Required').email(),
@@ -51,15 +56,27 @@ const SignUp = () => {
     } else {
       setErrors(undefined);
     }
+
+    const { loggedIn, message } = signUpHandler(formData);
+    if (loggedIn) navigate('/');
+    else
+      toast.error(message, {
+        position: toast.POSITION.BOTTOM_LEFT,
+      });
   };
 
   return (
     <>
-      <h1 className="font-bold text-[45px] text-white my-10">Welcome Back</h1>
+      <h1 className="font-bold text-[45px] text-white my-10">Get Started</h1>
       <div>
         <span className="text-sm text-[#9d9dbb]">
-          Don't have an account.{' '}
-          <span className="text-[#0dd] font-medium">Create one now.</span>
+          Already have an account.{' '}
+          <span
+            className="text-[#0dd] font-medium cursor-pointer"
+            onClick={() => navigate('/sign-in')}
+          >
+            Click to sign-in
+          </span>
         </span>
         <form onSubmit={handleSubmit} className="text-white max-w-[30rem]">
           <div className="mb-6 w-full">
@@ -161,7 +178,7 @@ const SignUp = () => {
             className="header-button bg-white text-[#292936]"
             type="submit"
           >
-            Sign in
+            Register
           </button>
         </form>
       </div>

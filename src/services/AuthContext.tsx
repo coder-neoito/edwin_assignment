@@ -32,7 +32,21 @@ const AuthContextProvider: React.FC<{ children: ReactNode }> = ({
     setLoggedIn(null);
   };
 
-  const values = { loginHandler, loggedIn, logoutHandler };
+  const signUpHandler = (data: { email: string; password: string }) => {
+    const { email, password } = data;
+    if (Object.keys(userList).includes(email)) {
+      localStorage.removeItem(POGR_LS_STRING);
+      setLoggedIn(null);
+      return { loggedIn: false, message: 'Email already exists' };
+    }
+    console.log({ ...userList, [email]: password });
+    setUserList((pre) => ({ ...pre, [email]: password }));
+    localStorage.setItem(POGR_LS_STRING, email);
+    setLoggedIn(email);
+    return { loggedIn: true, message: 'Success' };
+  };
+
+  const values = { loginHandler, loggedIn, logoutHandler, signUpHandler };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
