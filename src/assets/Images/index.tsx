@@ -26,6 +26,7 @@ import BookMarked from './bookmarked.svg';
 import BookMark from './bookamark.svg';
 import Hide from './hide-password.svg';
 import Show from './show-password.svg';
+import MobileLogo from './mobile-logo.svg';
 
 export {
   Home,
@@ -56,4 +57,5 @@ export {
   BookMarked,
   Hide,
   Show,
+  MobileLogo,
 };

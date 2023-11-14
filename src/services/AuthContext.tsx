@@ -39,7 +39,6 @@ const AuthContextProvider: React.FC<{ children: ReactNode }> = ({
       setLoggedIn(null);
       return { loggedIn: false, message: 'Email already exists' };
     }
-    console.log({ ...userList, [email]: password });
     setUserList((pre) => ({ ...pre, [email]: password }));
     localStorage.setItem(POGR_LS_STRING, email);
     setLoggedIn(email);
