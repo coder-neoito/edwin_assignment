@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 * {
-    @apply m-0 p-0 box-border;
+  @apply m-0 p-0 box-border;
 }
 
 .nav-list > li {
-    @apply flex gap-3 px-6 py-4 hover:bg-[#27303D] cursor-pointer;
+  @apply flex gap-3 px-6 py-4 hover:bg-[#27303D] cursor-pointer;
 }
 
 .header-button {
-    @apply border-none outline-none px-4 py-3 font-semibold rounded-md hover:bg-[#343444] hover:text-white hover:shadow-md;
+  @apply border-none outline-none px-4 py-3 font-semibold rounded-md hover:bg-[#343444] hover:text-white hover:shadow-md;
+}
+
+.error-message {
+  @apply text-[#FD4466] text-sm;
 }

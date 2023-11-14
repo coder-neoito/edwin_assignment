@@ -1,40 +1,36 @@
 import { Hide, Show } from 'assets/Images';
-import useAuthContext from 'hooks/UseAuthContext';
 import { useState, ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
-import { toast } from 'react-toastify';
 
-const SignIn = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    // confirm_password: '',
+    confirm_password: '',
   });
-  const { loginHandler } = useAuthContext();
-  const navigate = useNavigate();
-  const loginSchema = z.object({
-    email: z.string().min(1, 'Required').email(),
-    password: z
-      .string()
-      .min(1, 'Required')
-      .regex(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
-        {
-          message:
-            'Password should be 8 characters or more and include lowercase, uppercase, digit, and special character',
-        }
-      ),
-    // confirm_password: z.string().min(1, 'Required'),
-  });
-  // .refine((data) => data.confirm_password === data.password, {
-  //   message: 'Password does not match',
-  //   path: ['confirm_password'],
-  // });
+  const loginSchema = z
+    .object({
+      email: z.string().min(1, 'Required').email(),
+      password: z
+        .string()
+        .min(1, 'Required')
+        .regex(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
+          {
+            message:
+              'Password should be 8 characters or more and include lowercase, uppercase, digit, and special character',
+          }
+        ),
+      confirm_password: z.string().min(1, 'Required'),
+    })
+    .refine((data) => data.confirm_password === data.password, {
+      message: 'Password does not match',
+      path: ['confirm_password'],
+    });
   type FormattedErrorsType = z.inferFormattedError<typeof loginSchema>;
   const [errors, setErrors] = useState<FormattedErrorsType>();
 
-  // const [showConfirm, setShowConfirm] = useState<boolean>(false);
+  const [showConfirm, setShowConfirm] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,32 +51,17 @@ const SignIn = () => {
     } else {
       setErrors(undefined);
     }
-
-    const { loggedIn, message } = loginHandler(formData);
-    if (loggedIn) navigate('/');
-    else
-      toast.error(message, {
-        position: toast.POSITION.BOTTOM_LEFT,
-      });
   };
 
   return (
     <>
-      <h1 className="font-bold text-[45px] text-white my-10">Welcome Back!</h1>
+      <h1 className="font-bold text-[45px] text-white my-10">Welcome Back</h1>
       <div>
         <span className="text-sm text-[#9d9dbb]">
           Don't have an account.{' '}
-          <span
-            className="text-[#0dd] font-medium cursor-pointer"
-            onClick={() => navigate('/register')}
-          >
-            Create one now.
-          </span>
+          <span className="text-[#0dd] font-medium">Create one now.</span>
         </span>
-        <form
-          onSubmit={handleSubmit}
-          className="text-white max-w-[30rem] my-10"
-        >
+        <form onSubmit={handleSubmit} className="text-white max-w-[30rem]">
           <div className="mb-6 w-full">
             <label
               htmlFor="email"
@@ -142,7 +123,7 @@ const SignIn = () => {
             </span>
           </div>
 
-          {/* <div className="mb-6">
+          <div className="mb-6">
             <label
               htmlFor="confirm-password"
               className="block mb-2 text-lg font-bold text-white"
@@ -175,9 +156,9 @@ const SignIn = () => {
             <span className="error-message">
               {errors?.confirm_password?._errors[0]}
             </span>
-          </div> */}
+          </div>
           <button
-            className="header-button bg-white text-[#292936] mt-10"
+            className="header-button bg-white text-[#292936]"
             type="submit"
           >
             Sign in
@@ -188,4 +169,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

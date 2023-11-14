@@ -24,6 +24,8 @@ import LandFooter from './footer.webp';
 import Delete from './delete.svg';
 import BookMarked from './bookmarked.svg';
 import BookMark from './bookamark.svg';
+import Hide from './hide-password.svg';
+import Show from './show-password.svg';
 
 export {
   Home,
@@ -51,5 +53,7 @@ export {
   LandFooter,
   Delete,
   BookMark,
-  BookMarked
+  BookMarked,
+  Hide,
+  Show,
 };
